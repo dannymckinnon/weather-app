@@ -15,8 +15,8 @@ body {
 .weather-display {
   display: inline-flex;
   color: white;
-  gap: 1.5rem;
-  margin-left: 35%;
+  gap: 1rem;
+  margin-left: 15%;
   margin-top: 5%;
 }
 
@@ -25,12 +25,12 @@ body {
 }
 
 .temperature {
-  font-size: 6rem;
+  font-size: 8rem;
   line-height: 80%;
 }
 
 .icon {
-  min-width: 5rem;
+  min-width: 7rem;
 }
 
 .units {
@@ -57,11 +57,12 @@ body {
 
 .feels-hum-wind {
   font-size: 0.8rem;
-  padding: 5px 0;
+  padding: 10px 0;
 }
 
 .city-time-weather {
   align-items: center;
+  padding-left: 20px;
 }
 
 .city-name {
