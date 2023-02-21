@@ -7,4 +7,8 @@ async function getWeatherData(location, units = 'metric') {
   return jsonData;
 }
 
-getWeatherData('vancouver').then((data) => console.log(data));
+getWeatherData('vancouver')
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => console.log(error));
