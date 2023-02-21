@@ -13,9 +13,15 @@ body {
 }
 
 .weather-display {
-  display: flex;
+  display: inline-flex;
   color: white;
-  gap: 0.8rem;
+  gap: 1.5rem;
+  margin-left: 35%;
+  margin-top: 5%;
+}
+
+.container {
+  display: flex;
 }
 
 .temperature {
@@ -46,16 +52,38 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+  color: rgb(147, 146, 146);
 }
 
 .feels-hum-wind {
   font-size: 0.8rem;
-  color: rgb(147, 146, 146);
   padding: 5px 0;
 }
 
 .city-time-weather {
-  font-size: 1rem;
-  margin-left: 3rem;
+  align-items: center;
+}
+
+.city-name {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.city-input {
+  display: flex;
+  justify-content: flex-end;
+  margin: 50px 150px 0 0;
+}
+
+.city-input input {
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: none;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: whitesmoke;
+}
+
+.city-input input:focus {
+  outline: none;
 }

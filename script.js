@@ -7,6 +7,9 @@ async function getWeatherData(location, units = 'metric') {
   return jsonData;
 }
 
+// do another function that gets windspeed in mph by calling with units as
+// imperial regardless of the units your fetching with
+
 getWeatherData('vancouver')
   .then((data) => {
     console.log(data);
