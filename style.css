@@ -48,6 +48,10 @@ body {
   font-size: inherit;
 }
 
+.gray {
+  color: gray;
+}
+
 .extra-info {
   display: flex;
   flex-direction: column;
