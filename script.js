@@ -3,10 +3,34 @@ import getWeatherData from './weather-data.js';
 const input = document.querySelector('.city-input input');
 const celsius = document.querySelector('.celsius');
 const fahrenheit = document.querySelector('.fahrenheit');
+const city = document.querySelector('.city-name');
+
+fahrenheit.addEventListener('click', (e) => {
+  fahrenheit.classList.remove('gray');
+  celsius.classList.add('gray');
+  getWeatherData(city.textContent, 'imperial')
+    .then((data) => {
+      displayData(data);
+    })
+    .catch((error) => console.log(error));
+});
+
+celsius.addEventListener('click', (e) => {
+  celsius.classList.remove('gray');
+  fahrenheit.classList.add('gray');
+  getWeatherData(city.textContent, 'metric')
+    .then((data) => {
+      displayData(data);
+    })
+    .catch((error) => console.log(error));
+});
 
 input.addEventListener('keydown', (e) => {
   if (e.keyCode === 13) {
-    const weatherData = getWeatherData(input.value);
+    const weatherData = celsius.classList.contains('gray')
+      ? getWeatherData(input.value, 'imperial')
+      : getWeatherData(input.value, 'metric');
+
     weatherData
       .then((data) => displayData(data))
       .catch((error) => console.log(error));
@@ -25,7 +49,7 @@ function displayData(data) {
   const dayTime = document.querySelector('.daytime');
 
   temp.textContent = Math.round(data.main.temp);
-  feelsLike.textContent = `Feels like: ${Math.round(data.main.feels_like)}°C`;
+  feelsLike.textContent = `Feels like: ${Math.round(data.main.feels_like)}°`;
   humidity.textContent = `Humidity: ${data.main.humidity}%`;
   // will always display windspeed in imperial, so have to do another fetch
   getWeatherData(data.name, 'imperial').then((data) => {
@@ -56,7 +80,6 @@ function getDayTime(data) {
 
 getWeatherData('vancouver')
   .then((data) => {
-    console.log(data);
     displayData(data);
   })
   .catch((error) => console.log(error));
